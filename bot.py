@@ -5,8 +5,17 @@ token = file.readline()
 
 bot = telebot.TeleBot(token)
 
-name = ''
-is_retry = False
+@bot.message_handler(commands=['start'])
+def start_and_help(message):
+    user_id = message.from_user.id
+
+    
+
+    bot.send_message(message.from_user.id, "Системное меню start")
+
+@bot.message_handler(commands=['help'])
+def start_and_help(message):
+    bot.send_message(message.from_user.id, "Системное меню help")
 
 @bot.message_handler(content_types=['text'])
 def start(message):
